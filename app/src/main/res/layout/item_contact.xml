@@ -25,6 +25,7 @@
         app:layout_constraintBottom_toTopOf="@+id/contactItemEmailText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="@dimen/item_contact_name_margin_bottom"
         app:layout_constraintStart_toStartOf="@+id/contactItemEmailText"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Amanda Campos" />

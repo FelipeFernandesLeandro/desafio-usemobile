@@ -13,8 +13,7 @@
         android:layout_height="@dimen/item_contact_avatar_dimension"
         android:layout_marginEnd="@dimen/item_contact_avatar_end_margin"
         android:elevation="0dp"
-        app:cardCornerRadius="@dimen/item_contact_avatar_radius"
-        app:layout_constraintHorizontal_bias="0.0">
+        app:cardCornerRadius="@dimen/item_contact_avatar_radius">
 
         <ImageView
             android:layout_width="@dimen/item_contact_avatar_dimension"

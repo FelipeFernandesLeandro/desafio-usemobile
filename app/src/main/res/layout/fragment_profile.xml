@@ -1,59 +1,68 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="@dimen/common_horizontal_padding"
-    android:paddingTop="@dimen/profile_fragment_top_padding"
+    android:orientation="vertical"
     tools:context="com.felipefernandes.desafiousemobile.ui.profile.ProfileFragment">
 
-    <ImageView
-        android:id="@+id/profileFragmentContactAvatar"
-        android:layout_width="@dimen/profile_fragment_avatar_dimension"
-        android:layout_height="@dimen/profile_fragment_avatar_dimension"
-        android:layout_marginBottom="@dimen/profile_fragment_avatar_bottom_margin"
-        android:contentDescription="@string/avatar_description"
-        app:layout_constraintBottom_toTopOf="@+id/profileFragmentContactName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@color/colorPrimary" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profileFragmentContactRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/common_horizontal_padding"
+        android:paddingTop="@dimen/profile_fragment_top_padding">
 
-    <TextView
-        android:id="@+id/profileFragmentContactName"
-        style="@style/FragmentProfile.TextDisplay1"
-        android:layout_marginBottom="@dimen/profile_fragment_name_bottom_margin"
-        app:layout_constraintBottom_toTopOf="@+id/profileFragmentContactEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileFragmentContactAvatar"
-        tools:text="Rafael Braga Araújo" />
+        <include layout="@layout/placeholder_fragment_profile" />
 
-    <TextView
-        android:id="@+id/profileFragmentContactEmail"
-        style="@style/FragmentProfile.TextBody1"
-        app:layout_constraintBottom_toTopOf="@+id/profileFragmentContactAboutWrapper"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileFragmentContactName"
-        tools:text="rafael@gmail.com" />
-
-    <LinearLayout
-        android:id="@+id/profileFragmentContactAboutWrapper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/profile_fragment_about_wrapper_bottom_margin"
-        android:background="@drawable/border"
-        android:padding="@dimen/profile_fragment_about_wrapper_padding"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileFragmentContactEmail">
+        <ImageView
+            android:id="@+id/profileFragmentContactAvatar"
+            android:layout_width="@dimen/profile_fragment_avatar_dimension"
+            android:layout_height="@dimen/profile_fragment_avatar_dimension"
+            android:layout_marginBottom="@dimen/profile_fragment_avatar_bottom_margin"
+            android:contentDescription="@string/avatar_description"
+            app:layout_constraintBottom_toTopOf="@+id/profileFragmentContactName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@color/colorPrimary" />
 
         <TextView
-            android:id="@+id/profileFragmentContactAbout"
-            style="@style/FragmentProfile.TextBody2"
-            tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. " />
+            android:id="@+id/profileFragmentContactName"
+            style="@style/FragmentProfile.TextDisplay1"
+            android:layout_marginBottom="@dimen/profile_fragment_name_bottom_margin"
+            app:layout_constraintBottom_toTopOf="@+id/profileFragmentContactEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileFragmentContactAvatar"
+            tools:text="Rafael Braga Araújo" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/profileFragmentContactEmail"
+            style="@style/FragmentProfile.TextBody1"
+            app:layout_constraintBottom_toTopOf="@+id/profileFragmentContactAboutWrapper"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileFragmentContactName"
+            tools:text="rafael@gmail.com" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/profileFragmentContactAboutWrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/profile_fragment_about_wrapper_bottom_margin"
+            android:background="@drawable/border"
+            android:padding="@dimen/profile_fragment_about_wrapper_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileFragmentContactEmail">
+
+            <TextView
+                android:id="@+id/profileFragmentContactAbout"
+                style="@style/FragmentProfile.TextBody2"
+                tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. " />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -1,16 +1,18 @@
 package com.felipefernandes.desafiousemobile.ui.profile
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.felipefernandes.desafiousemobile.R
 import com.felipefernandes.desafiousemobile.api.viewModels.ContactsViewModel
 import com.felipefernandes.desafiousemobile.entities.contact.ContactWithAboutModel
 import com.felipefernandes.desafiousemobile.extensions.loadImage
+import com.felipefernandes.desafiousemobile.extensions.setViewVisibility
 import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.placeholder_fragment_profile.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class ProfileFragment : Fragment() {
@@ -34,9 +36,24 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setObservers() {
+        viewModel.isLoading.observe(this, { loading ->
+            onLoading(loading)
+        })
+
         viewModel.singleContact.observe(this, { contact ->
             setUi(contact)
         })
+    }
+
+    private fun onLoading(loading: Boolean) {
+        if (loading) {
+            placeholderProfileFragment.startShimmer()
+        } else {
+            placeholderProfileFragment.stopShimmer()
+        }
+
+        placeholderProfileFragment.setViewVisibility(loading)
+        profileFragmentContactRoot.setViewVisibility(loading.not())
     }
 
     private fun setUi(contact: ContactWithAboutModel) {
@@ -53,5 +70,15 @@ class ProfileFragment : Fragment() {
     override fun onDestroy() {
         viewModel.cancelPendingJobs()
         super.onDestroy()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        placeholderProfileFragment.startShimmer()
+    }
+
+    override fun onPause() {
+        placeholderProfileFragment.stopShimmer()
+        super.onPause()
     }
 }
