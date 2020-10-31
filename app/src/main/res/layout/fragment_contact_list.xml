@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@color/offWhite"
     android:orientation="vertical"
     tools:context="com.felipefernandes.desafiousemobile.ui.contacts.ContactListFragment">
@@ -14,8 +15,8 @@
         android:paddingHorizontal="@dimen/common_horizontal_padding"
         android:paddingTop="@dimen/contact_list_fragment_search_view_wrapper_top_padding">
 
-        <AutoCompleteTextView
-            android:id="@+id/contactListFragmentAutoCompleteText"
+        <EditText
+            android:id="@+id/contactListFragmentSearchInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/contact_list_fragment_search_view_margin_bottom"
@@ -31,21 +32,21 @@
 
     <TextView
         android:id="@+id/contactListFragmentNotFoundText"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:paddingTop="@dimen/contact_list_fragment_not_found_text_padding_top"
-        android:textAlignment="center"
-        android:background="@android:color/white"
         style="@style/ItemContact.TextBody1"
-        android:text="@string/contact_list_not_found" />
+        android:layout_width="match_parent"
+        android:background="@android:color/white"
+        android:paddingTop="@dimen/contact_list_fragment_not_found_text_padding_top"
+        android:text="@string/contact_list_not_found"
+        android:textAlignment="center"
+        android:visibility="gone" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
-        android:visibility="gone"
         android:id="@+id/contactListFragmentPlaceholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
