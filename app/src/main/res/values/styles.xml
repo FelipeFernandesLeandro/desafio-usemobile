@@ -7,6 +7,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+<!--    Splash screen -->
+    <style name="AppTheme.Splash">
+        <item name="android:windowBackground">@drawable/activity_splash_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
     <!--  ItemContact Styles  -->
     <style name="ItemContact.TextBody1" parent="Base.TextAppearance.AppCompat.Body1">
         <item name="android:layout_width">wrap_content</item>

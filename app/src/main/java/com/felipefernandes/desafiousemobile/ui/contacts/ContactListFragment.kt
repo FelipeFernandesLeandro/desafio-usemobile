@@ -146,8 +146,10 @@ class ContactListFragment : Fragment() {
     private fun onLoading(loading: Boolean) {
         if (loading) {
             contactListFragmentPlaceholder.startShimmer()
+            contactListFragmentSearchInput.isFocusable = false
         } else {
             contactListFragmentPlaceholder.stopShimmer()
+            contactListFragmentSearchInput.isFocusableInTouchMode = true
         }
 
         contactListFragmentPlaceholder.setViewVisibility(loading)
