@@ -3,6 +3,7 @@
     <!--  ContactListFragment  -->
     <string name="contact_list_action_bar_title">Lista de pessoas</string>
     <string name="contact_list_search_input_hint">Pesquisar</string>
+    <string name="contact_list_not_found">Nenhum contato encontrado</string>
     <!--  Common  -->
     <string name="avatar_description">Avatar do usuário</string>
 </resources>

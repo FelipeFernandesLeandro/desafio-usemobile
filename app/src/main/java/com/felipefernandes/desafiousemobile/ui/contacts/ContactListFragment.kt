@@ -2,6 +2,8 @@ package com.felipefernandes.desafiousemobile.ui.contacts
 
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,12 +53,15 @@ class ContactListFragment : Fragment() {
     }
 
     private fun setContactsAdapter(contacts: List<ContactModel>) {
-        val contactsAdapter = ContactsAdapter(contacts) { id, name ->
-            val directions = ContactListFragmentDirections
-                .actionContactListFragmentToProfileFragment(id, name)
-
-            findNavController().navigateWithAnimations(directions)
-        }
+        val contactsAdapter = ContactsAdapter(
+            contacts,
+            onClick = { id, name ->
+                navigateToProfile(id, name)
+            },
+            onNothingFound = { noResultsFound ->
+                setNotFoundTextVisibility(noResultsFound)
+            },
+        )
 
         contactListFragmentRecyclerView.apply {
             setHasFixedSize(true)
@@ -64,10 +69,30 @@ class ContactListFragment : Fragment() {
             addItemDecoration(DividerItemDecoration(context))
             adapter = contactsAdapter
         }
+
+        contactListFragmentAutoCompleteText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                contactsAdapter.filter.filter(charSequence.toString())
+            }
+
+            override fun afterTextChanged(editable: Editable) {}
+        })
     }
 
     private fun loadContacts() {
         viewModel.fetchContactList()
+    }
+
+    private fun navigateToProfile(id: Int, name: String) {
+        val directions = ContactListFragmentDirections
+            .actionContactListFragmentToProfileFragment(id, name)
+
+        findNavController().navigateWithAnimations(directions)
+    }
+
+    private fun setNotFoundTextVisibility(visible: Boolean) {
+        contactListFragmentNotFoundText.visibility = if (visible) View.VISIBLE else View.GONE
     }
 
     override fun onDestroy() {

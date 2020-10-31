@@ -14,7 +14,8 @@
         android:paddingHorizontal="@dimen/common_horizontal_padding"
         android:paddingTop="@dimen/contact_list_fragment_search_view_wrapper_top_padding">
 
-        <EditText
+        <AutoCompleteTextView
+            android:id="@+id/contactListFragmentAutoCompleteText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/contact_list_fragment_search_view_margin_bottom"
@@ -23,9 +24,20 @@
             android:drawableEnd="@drawable/ic_baseline_mic_24"
             android:drawablePadding="@dimen/contact_list_fragment_search_view_drawable_padding"
             android:hint="@string/contact_list_search_input_hint"
+            android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="textPersonName" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/contactListFragmentNotFoundText"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:paddingTop="@dimen/contact_list_fragment_not_found_text_padding_top"
+        android:textAlignment="center"
+        android:background="@android:color/white"
+        style="@style/ItemContact.TextBody1"
+        android:text="@string/contact_list_not_found" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contactListFragmentRecyclerView"
