@@ -11,6 +11,8 @@ import com.felipefernandes.desafiousemobile.api.viewModels.ContactsViewModel
 import com.felipefernandes.desafiousemobile.entities.contact.ContactWithAboutModel
 import com.felipefernandes.desafiousemobile.extensions.loadImage
 import com.felipefernandes.desafiousemobile.extensions.setViewVisibility
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.fragment_contact_list.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.placeholder_fragment_profile.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -42,6 +44,10 @@ class ProfileFragment : Fragment() {
 
         viewModel.singleContact.observe(this, { contact ->
             setUi(contact)
+        })
+
+        viewModel.error.observe(this, {
+            Snackbar.make(profileFragmentContactRoot, getString(R.string.connection_check_internet), Snackbar.LENGTH_LONG).show()
         })
     }
 

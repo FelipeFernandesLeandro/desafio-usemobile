@@ -5,6 +5,8 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.speech.RecognizerIntent
 import android.text.Editable
 import android.text.TextWatcher
@@ -23,6 +25,7 @@ import com.felipefernandes.desafiousemobile.entities.contact.ContactModel
 import com.felipefernandes.desafiousemobile.entities.contact.ContactsAdapter
 import com.felipefernandes.desafiousemobile.extensions.navigateWithAnimations
 import com.felipefernandes.desafiousemobile.extensions.setViewVisibility
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_contact_list.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.util.Locale
@@ -86,6 +89,10 @@ class ContactListFragment : Fragment() {
             }
             false
         }
+
+        contactListFragmentSwipeRefresh.setOnRefreshListener {
+            Handler(Looper.getMainLooper()).post { loadContacts() }
+        }
     }
 
     private fun drawableTouchCondition(
@@ -124,8 +131,15 @@ class ContactListFragment : Fragment() {
         })
 
         viewModel.contactList.observe(this, { contacts ->
+            contactListFragmentSwipeRefresh.isRefreshing = false
             localContactList = contacts
             setContactsAdapter(contacts)
+        })
+
+        viewModel.error.observe(this, {
+            contactListFragmentSwipeRefresh.isRefreshing = false
+
+            Snackbar.make(contactListFragmentSwipeRefresh, getString(R.string.connection_check_internet), Snackbar.LENGTH_LONG).show()
         })
     }
 

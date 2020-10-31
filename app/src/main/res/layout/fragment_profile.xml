@@ -6,14 +6,14 @@
     android:orientation="vertical"
     tools:context="com.felipefernandes.desafiousemobile.ui.profile.ProfileFragment">
 
+    <include layout="@layout/placeholder_fragment_profile" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profileFragmentContactRoot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="@dimen/common_horizontal_padding"
         android:paddingTop="@dimen/profile_fragment_top_padding">
-
-        <include layout="@layout/placeholder_fragment_profile" />
 
         <ImageView
             android:id="@+id/profileFragmentContactAvatar"

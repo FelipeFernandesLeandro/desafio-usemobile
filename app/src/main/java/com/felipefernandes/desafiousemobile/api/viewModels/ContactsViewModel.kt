@@ -36,12 +36,10 @@ class ContactsViewModel(
                         contactList.postValue(result.body()?.result)
                     }
                     else -> {
-                        isLoading.postValue(false)
                         error.postValue(ErrorParser.parse(BaseClient.getApi(), result))
                     }
                 }
             } catch (e: Exception) {
-                isLoading.postValue(false)
                 error.postValue(null)
             }
         }
@@ -60,12 +58,10 @@ class ContactsViewModel(
                         singleContact.postValue(result.body())
                     }
                     else -> {
-                        isLoading.postValue(false)
                         error.postValue(ErrorParser.parse(BaseClient.getApi(), result))
                     }
                 }
             } catch (e: Exception) {
-                isLoading.postValue(false)
                 error.postValue(null)
             }
         }

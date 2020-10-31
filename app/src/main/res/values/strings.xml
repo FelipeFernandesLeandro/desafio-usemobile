@@ -8,4 +8,5 @@
     <string name="profile_im_listening">Estou escutando</string>
     <!--  Common  -->
     <string name="avatar_description">Avatar do usuário</string>
+    <string name="connection_check_internet">Verifique a conexão com a internet</string>
 </resources>

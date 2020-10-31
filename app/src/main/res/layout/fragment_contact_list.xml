@@ -1,82 +1,88 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contactListFragmentSwipeRefresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:animateLayoutChanges="true"
-    android:background="@color/offWhite"
-    android:orientation="vertical"
     tools:context="com.felipefernandes.desafiousemobile.ui.contacts.ContactListFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/contact_list_fragment_search_view_margin_bottom"
-        android:background="@android:color/white"
-        android:paddingHorizontal="@dimen/common_horizontal_padding"
-        android:paddingTop="@dimen/contact_list_fragment_search_view_wrapper_top_padding">
-
-        <EditText
-            android:id="@+id/contactListFragmentSearchInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/contact_list_fragment_search_view_margin_bottom"
-            android:background="@android:color/white"
-            android:drawableStart="@drawable/ic_baseline_search_24"
-            android:drawableEnd="@drawable/ic_baseline_mic_24"
-            android:drawablePadding="@dimen/contact_list_fragment_search_view_drawable_padding"
-            android:hint="@string/contact_list_search_input_hint"
-            android:imeOptions="actionDone"
-            android:importantForAutofill="no"
-            android:inputType="textPersonName" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/contactListFragmentNotFoundText"
-        style="@style/ItemContact.TextBody1"
-        android:layout_width="match_parent"
-        android:background="@android:color/white"
-        android:paddingTop="@dimen/contact_list_fragment_not_found_text_padding_top"
-        android:text="@string/contact_list_not_found"
-        android:textAlignment="center"
-        android:visibility="gone" />
-
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/contactListFragmentPlaceholder"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:animateLayoutChanges="true"
+        android:background="@color/offWhite"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginBottom="@dimen/contact_list_fragment_search_view_margin_bottom"
+            android:background="@android:color/white"
+            android:paddingHorizontal="@dimen/common_horizontal_padding"
+            android:paddingTop="@dimen/contact_list_fragment_search_view_wrapper_top_padding">
 
-            <include layout="@layout/placeholder_item_contact_variant_a" />
-
-            <include layout="@layout/placeholder_item_contact_variant_b" />
-
-            <include layout="@layout/placeholder_item_contact_variant_c" />
-
-            <include layout="@layout/placeholder_item_contact_variant_b" />
-
-            <include layout="@layout/placeholder_item_contact_variant_c" />
-
-            <include layout="@layout/placeholder_item_contact_variant_a" />
-
-            <include layout="@layout/placeholder_item_contact_variant_c" />
-
-            <include layout="@layout/placeholder_item_contact_variant_b" />
-
+            <EditText
+                android:id="@+id/contactListFragmentSearchInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/contact_list_fragment_search_view_margin_bottom"
+                android:background="@android:color/white"
+                android:drawableStart="@drawable/ic_baseline_search_24"
+                android:drawableEnd="@drawable/ic_baseline_mic_24"
+                android:drawablePadding="@dimen/contact_list_fragment_search_view_drawable_padding"
+                android:hint="@string/contact_list_search_input_hint"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName" />
         </LinearLayout>
 
-    </com.facebook.shimmer.ShimmerFrameLayout>
+        <TextView
+            android:id="@+id/contactListFragmentNotFoundText"
+            style="@style/ItemContact.TextBody1"
+            android:layout_width="match_parent"
+            android:background="@android:color/white"
+            android:paddingTop="@dimen/contact_list_fragment_not_found_text_padding_top"
+            android:text="@string/contact_list_not_found"
+            android:textAlignment="center"
+            android:visibility="gone" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/contactListFragmentRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white" />
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/contactListFragmentPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
 
-</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/placeholder_item_contact_variant_a" />
+
+                <include layout="@layout/placeholder_item_contact_variant_b" />
+
+                <include layout="@layout/placeholder_item_contact_variant_c" />
+
+                <include layout="@layout/placeholder_item_contact_variant_b" />
+
+                <include layout="@layout/placeholder_item_contact_variant_c" />
+
+                <include layout="@layout/placeholder_item_contact_variant_a" />
+
+                <include layout="@layout/placeholder_item_contact_variant_c" />
+
+                <include layout="@layout/placeholder_item_contact_variant_b" />
+
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/contactListFragmentRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" />
+
+    </LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
