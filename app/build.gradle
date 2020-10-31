@@ -24,7 +24,7 @@ android {
         }
 
         buildTypes.each {
-            it.buildConfigField "String", "BASE_URL", "https://processo-seletivo-mobile-api.usemobile.com.br/api/"
+            it.buildConfigField 'String', 'BASE_URL', BASE_URL
         }
     }
 
