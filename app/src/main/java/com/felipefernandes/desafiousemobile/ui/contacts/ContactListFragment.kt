@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.felipefernandes.desafiousemobile.R
+import com.felipefernandes.desafiousemobile.extensions.navigateWithAnimations
 import kotlinx.android.synthetic.main.fragment_contact_list.*
 
 class ContactListFragment : Fragment() {
@@ -22,7 +23,7 @@ class ContactListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         fragmentContactListButtonNext.setOnClickListener {
-            findNavController().navigate(R.id.action_contactListFragment_to_profileFragment)
+            findNavController().navigateWithAnimations(R.id.action_contactListFragment_to_profileFragment)
         }
     }
 }
