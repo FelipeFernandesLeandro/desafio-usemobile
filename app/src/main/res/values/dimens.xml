@@ -12,4 +12,12 @@
     <dimen name="contact_list_fragment_search_view_margin_bottom">10dp</dimen>
     <dimen name="contact_list_fragment_search_view_drawable_padding">24dp</dimen>
     <dimen name="contact_list_fragment_search_view_wrapper_top_padding">12dp</dimen>
+
+    <!--    profile fragment dimensions -->
+    <dimen name="profile_fragment_top_padding">26dp</dimen>
+    <dimen name="profile_fragment_avatar_dimension">73dp</dimen>
+    <dimen name="profile_fragment_avatar_bottom_margin">16dp</dimen>
+    <dimen name="profile_fragment_name_bottom_margin">10dp</dimen>
+    <dimen name="profile_fragment_about_wrapper_bottom_margin">30dp</dimen>
+    <dimen name="profile_fragment_about_wrapper_padding">20dp</dimen>
 </resources>

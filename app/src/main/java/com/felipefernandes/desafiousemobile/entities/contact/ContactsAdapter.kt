@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.felipefernandes.desafiousemobile.R
 import com.felipefernandes.desafiousemobile.extensions.loadImage
 
-class ContactsAdapter(private val contacts: List<ContactModel>) : RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
+class ContactsAdapter(
+    private val contacts: List<ContactModel>,
+    private val onClick: (Int, String) -> Unit
+) : RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_contact, parent, false))
     }
@@ -36,7 +39,7 @@ class ContactsAdapter(private val contacts: List<ContactModel>) : RecyclerView.A
             }
 
             itemView.setOnClickListener {
-                // TODO
+                onClick(contact.id, contact.name)
             }
         }
     }

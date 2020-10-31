@@ -9,7 +9,7 @@
         android:id="@+id/contactListFragment"
         android:name="com.felipefernandes.desafiousemobile.ui.contacts.ContactListFragment"
         android:label="@string/contact_list_action_bar_title"
-        tools:layout="@layout/fragment_contact_list" >
+        tools:layout="@layout/fragment_contact_list">
         <action
             android:id="@+id/action_contactListFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
@@ -17,6 +17,15 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.felipefernandes.desafiousemobile.ui.profile.ProfileFragment"
-        android:label="@string/profile_action_bar_title"
-        tools:layout="@layout/fragment_profile" />
+        android:label="{contactName}"
+        tools:layout="@layout/fragment_profile">
+        <argument
+            android:name="contactId"
+            app:argType="integer"
+            app:nullable="false" />
+        <argument
+            android:name="contactName"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
 </navigation>

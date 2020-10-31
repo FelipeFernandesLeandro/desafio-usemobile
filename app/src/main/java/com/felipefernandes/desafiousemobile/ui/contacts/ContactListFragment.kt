@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.felipefernandes.desafiousemobile.R
 import com.felipefernandes.desafiousemobile.api.viewModels.ContactsViewModel
 import com.felipefernandes.desafiousemobile.entities.contact.ContactModel
 import com.felipefernandes.desafiousemobile.entities.contact.ContactsAdapter
+import com.felipefernandes.desafiousemobile.extensions.navigateWithAnimations
 import kotlinx.android.synthetic.main.fragment_contact_list.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -49,7 +51,12 @@ class ContactListFragment : Fragment() {
     }
 
     private fun setContactsAdapter(contacts: List<ContactModel>) {
-        val contactsAdapter = ContactsAdapter(contacts)
+        val contactsAdapter = ContactsAdapter(contacts) { id, name ->
+            val directions = ContactListFragmentDirections
+                .actionContactListFragmentToProfileFragment(id, name)
+
+            findNavController().navigateWithAnimations(directions)
+        }
 
         contactListFragmentRecyclerView.apply {
             setHasFixedSize(true)

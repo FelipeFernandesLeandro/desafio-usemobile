@@ -9,5 +9,7 @@
     <color name="green">#009A24</color>
     <color name="offWhite">#F3F3F3</color>
 
+    <color name="profileFragmentAboutWrapperBorderColor">#E6E6E6</color>
+
     <drawable name="glideError">#e6fafafa</drawable>
 </resources>
