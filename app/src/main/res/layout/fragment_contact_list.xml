@@ -1,14 +1,36 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.felipefernandes.desafiousemobile.ui.ContactListFragment">
+    android:background="@color/offWhite"
+    android:orientation="vertical"
+    tools:context="com.felipefernandes.desafiousemobile.ui.contacts.ContactListFragment">
 
-    <Button
-        android:id="@+id/fragmentContactListButtonNext"
-        android:text="@string/contact_list_temporary_button"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/contact_list_fragment_search_view_margin_bottom"
+        android:background="@android:color/white"
+        android:paddingHorizontal="@dimen/common_horizontal_padding"
+        android:paddingTop="@dimen/contact_list_fragment_search_view_wrapper_top_padding">
 
-</FrameLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/contact_list_fragment_search_view_margin_bottom"
+            android:background="@android:color/white"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:drawableEnd="@drawable/ic_baseline_mic_24"
+            android:drawablePadding="@dimen/contact_list_fragment_search_view_drawable_padding"
+            android:hint="@string/contact_list_search_input_hint"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contactListFragmentRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white" />
+
+</LinearLayout>

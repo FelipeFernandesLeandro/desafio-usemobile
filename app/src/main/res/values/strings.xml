@@ -2,8 +2,9 @@
     <string name="app_name">Desafio Usemobile</string>
     <!--  ContactListFragment  -->
     <string name="contact_list_action_bar_title">Lista de pessoas</string>
-    <string name="contact_list_temporary_button">Next</string>
     <string name="contact_list_search_input_hint">Pesquisar</string>
     <!--  Profile Fragment  -->
     <string name="profile_action_bar_title">Perfil</string>
+    <!--  Common  -->
+    <string name="avatar_description">Avatar do usuário</string>
 </resources>

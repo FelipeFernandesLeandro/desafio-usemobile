@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    common dimensions -->
+    <dimen name="common_horizontal_padding">16dp</dimen>
+    <!--    item contact dimensions -->
+    <dimen name="item_contact_vertical_padding">12dp</dimen>
+    <dimen name="item_contact_avatar_dimension">40dp</dimen>
+    <dimen name="item_contact_avatar_end_margin">19dp</dimen>
+    <dimen name="item_contact_name_to_check_margin">4.9dp</dimen>
+
+    <!--    contact list fragment dimensions -->
+    <dimen name="contact_list_fragment_search_view_margin_bottom">10dp</dimen>
+    <dimen name="contact_list_fragment_search_view_drawable_padding">24dp</dimen>
+    <dimen name="contact_list_fragment_search_view_wrapper_top_padding">12dp</dimen>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/common_horizontal_padding"
+    android:paddingVertical="@dimen/item_contact_vertical_padding">
+
+    <ImageView
+        android:id="@+id/contactItemAvatarImage"
+        android:layout_width="@dimen/item_contact_avatar_dimension"
+        android:layout_height="@dimen/item_contact_avatar_dimension"
+        android:layout_marginEnd="@dimen/item_contact_avatar_end_margin"
+        android:contentDescription="@string/avatar_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/contactItemEmailText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/contactItemNameText"
+        style="@style/ItemContact.TextBody1"
+        app:layout_constraintBottom_toTopOf="@+id/contactItemEmailText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/contactItemEmailText"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Amanda Campos" />
+
+    <TextView
+        android:id="@+id/contactItemEmailText"
+        style="@style/ItemContact.TextBody2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/contactItemAvatarImage"
+        app:layout_constraintTop_toBottomOf="@+id/contactItemNameText"
+        tools:text="amanda@gmail.com" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
