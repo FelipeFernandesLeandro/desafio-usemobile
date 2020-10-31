@@ -16,6 +16,7 @@ import com.felipefernandes.desafiousemobile.api.viewModels.ContactsViewModel
 import com.felipefernandes.desafiousemobile.entities.contact.ContactModel
 import com.felipefernandes.desafiousemobile.entities.contact.ContactsAdapter
 import com.felipefernandes.desafiousemobile.extensions.navigateWithAnimations
+import com.felipefernandes.desafiousemobile.extensions.setViewVisibility
 import kotlinx.android.synthetic.main.fragment_contact_list.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -39,10 +40,25 @@ class ContactListFragment : Fragment() {
     }
 
     private fun setObservers() {
+        viewModel.isLoading.observe(this, { loading ->
+            onLoading(loading)
+        })
+
         viewModel.contactList.observe(this, { contacts ->
             localContactList = contacts
             setContactsAdapter(contacts)
         })
+    }
+
+    private fun onLoading(loading: Boolean) {
+        if (loading) {
+            contactListFragmentPlaceholder.startShimmer()
+        } else {
+            contactListFragmentPlaceholder.stopShimmer()
+        }
+
+        contactListFragmentPlaceholder.setViewVisibility(loading)
+        contactListFragmentRecyclerView.setViewVisibility(loading.not())
     }
 
     override fun onAttach(context: Context) {
@@ -92,11 +108,21 @@ class ContactListFragment : Fragment() {
     }
 
     private fun setNotFoundTextVisibility(visible: Boolean) {
-        contactListFragmentNotFoundText.visibility = if (visible) View.VISIBLE else View.GONE
+        contactListFragmentNotFoundText.setViewVisibility(visible)
     }
 
     override fun onDestroy() {
         viewModel.cancelPendingJobs()
         super.onDestroy()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        contactListFragmentPlaceholder.startShimmer()
+    }
+
+    override fun onPause() {
+        contactListFragmentPlaceholder.stopShimmer()
+        super.onPause()
     }
 }

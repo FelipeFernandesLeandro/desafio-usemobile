@@ -4,7 +4,9 @@
     <dimen name="common_horizontal_padding">16dp</dimen>
     <!--    item contact dimensions -->
     <dimen name="item_contact_vertical_padding">12dp</dimen>
+    <dimen name="item_contact_avatar_radius">20dp</dimen>
     <dimen name="item_contact_avatar_dimension">40dp</dimen>
+    <dimen name="item_contact_name_margin_bottom">7dp</dimen>
     <dimen name="item_contact_avatar_end_margin">19dp</dimen>
     <dimen name="item_contact_name_to_check_margin">4.9dp</dimen>
 
