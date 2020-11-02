@@ -17,10 +17,31 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            storeFile rootProject.file("weeseg.keystore")
+
+            def file = rootProject.file("keystore.properties")
+            if (file.exists()) {
+                def props = new Properties()
+                props.load(new FileInputStream(file))
+
+                storePassword props.storePassword
+                keyAlias props.keyAlias
+                keyPassword props.keyPassword
+            } else {
+                storePassword System.env.KEYSTORE_PASSWORD
+                keyAlias System.env.KEY_ALIAS
+                keyPassword System.env.KEY_PASSWORD
+            }
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
